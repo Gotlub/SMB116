@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1"
+    android:gravity="top"
+    android:padding="15dp"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+    <TableRow>
+        <TextView
+            android:text="User Name: "
+            android:id="@+id/TextView01"
+            android:layout_marginVertical="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <EditText
+            android:text=""
+            android:id="@+id/txtUname"
+            android:layout_marginVertical="5dp"
+            android:layout_width="fill_parent"
+            android:background="@drawable/border"
+            android:layout_height="wrap_content">
+        </EditText>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Password: "
+            android:id="@+id/TextView02"
+            android:layout_marginVertical="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <EditText
+            android:text=""
+            android:id="@+id/txtPwd"
+            android:layout_width="fill_parent"
+            android:layout_marginVertical="5dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:inputType="textPassword">
+        </EditText>
+    </TableRow>
+    <TableRow>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:backgroundTint="@android:color/white"
+            android:layout_margin="5dp"
+            android:textColor="@android:color/black">
+        </Button>
+        <Button
+            android:text="Login"
+            android:id="@+id/btnLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@android:color/white"
+            android:textColor="@android:color/black">
+        </Button>
+    </TableRow>
+</TableLayout>
