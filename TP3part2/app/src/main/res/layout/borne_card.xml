@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="200dp"
+        android:id="@+id/nomB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Nom "
+        android:maxLines="1"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/adresseB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nomB"
+        android:layout_marginStart="10dp"
+        android:textColor="#D3D3D3"
+        android:gravity="center"
+        android:text="Adresse :"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/villeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adresseB"
+        android:textColor="#D3D3D3"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="Ville :"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/gpsB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/villeB"
+        android:textColor="#D3D3D3"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="GPS : "
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/puissance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsB"
+        android:textColor="#D3D3D3"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="Puissance :"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/statutB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/puissance"
+        android:textColor="#D3D3D3"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="Statut :"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/prixB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/statutB"
+        android:textColor="#D3D3D3"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="Prix : "
+        android:textSize="12sp"/>
+
+</RelativeLayout>

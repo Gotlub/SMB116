@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Constaintlayout -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BorneDetails">
+
+    <!--Custom ToolBar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black"
+        app:titleTextColor="@color/white"
+        app:title="Détaille de la borne"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- LinearLayout to place items vertically-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <!-- LinearLayout to place items horizontally-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID : "
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/idD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" l'id"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+
+        <!-- LinearLayout to place items horizontally-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom : "
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/nomD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" affichage du nom"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="adresse : "
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/adresseD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="adresse"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ville : "
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/villeD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" ville"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GPS : "
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/gpsD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="coordonnées"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Puissance : "
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/puissanceD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="puissance"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Statut : "
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/statutD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="statut"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prix : "
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/prixD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="prix"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

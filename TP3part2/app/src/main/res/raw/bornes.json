@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "Nom de la borne": "Avenue des Platanes",
+        "Adresse": "Avenue des Platanes",
+        "Ville": "Mordelles",
+        "GPS": "-1.8353097695116958,48.07971757105983",
+        "Puissance": "150Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 2,
+        "Nom de la borne": "TotalEnergies - VESOUL",
+        "Adresse": "22 rue de Paris",
+        "Ville": "Vesoul",
+        "GPS": "6.158248908759219,47.63379672538849",
+        "Puissance": "150Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "0.59"
+    },
+    {
+        "id": 3,
+        "Nom de la borne": "Route de Launaguet",
+        "Adresse": "274 Route de Launaguet",
+        "Ville": "Toulouse",
+        "GPS": "1.4380490809837738,43.652820370363116",
+        "Puissance": "50Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "0,49 €/kWh, 0,48 €/min pour la recharge (> 45 min)"
+    },
+    {
+        "id": 4,
+        "Nom de la borne": "HUB Emotum - Garage Hôtel Paris XIV",
+        "Adresse": "36 RUE FRIANT",
+        "Ville": "PARIS",
+        "GPS": "2.323578,48.824668",
+        "Puissance": "240Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 5,
+        "Nom de la borne": "Parking",
+        "Adresse": "Rue des Rosiers",
+        "Ville": "Corbeil-Essonnes",
+        "GPS": "2.4815226226536424,48.61336230469274",
+        "Puissance": "22Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 6,
+        "Nom de la borne": "Boulevard du Professeur Léopold Escande",
+        "Adresse": "10 Boulevard du Professeur Léopold Escande",
+        "Ville": "Toulouse",
+        "GPS": "1.4565240318671613,43.60313077874247",
+        "Puissance": "22Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 7,
+        "Nom de la borne": "Carrefour Market",
+        "Adresse": "6 Rue Claudius Rougenet",
+        "Ville": "Toulouse",
+        "GPS": "1.4872764946364896,43.59881340450329",
+        "Puissance": "50Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 8,
+        "Nom de la borne": "Avenue de Lasbordes",
+        "Adresse": "241 avenue de Lasbordes",
+        "Ville": "Toulouse",
+        "GPS": "1.4883849781172103,43.59452930753446",
+        "Puissance": "90Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "0.48 € / min"
+    },
+    {
+        "id": 9,
+        "Nom de la borne": "Jean Chaubet",
+        "Adresse": "160 Avenue Jean Chaubet",
+        "Ville": "Toulouse",
+        "GPS": "1.4836842833779258,43.60655850970505",
+        "Puissance": "180Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": ""
+    },
+    {
+        "id": 10,
+        "Nom de la borne": "Intermarché Super - Moustajon",
+        "Adresse": "30 Les Tretes, 31110 Moustajon,",
+        "Ville": "Moustajon",
+        "GPS": "0.5984854460827194,42.80838149039823",
+        "Puissance": "100Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "0,60€/kWh"
+    },
+    {
+        "id": 11,
+        "Nom de la borne": "Atlante - Greet Hotel Angoulême Ouest",
+        "Adresse": "114 Rue De Royan ",
+        "Ville": "Saint-Yrieix-sur-Charente",
+        "GPS": "0.1303965503306017,45.66375365015023",
+        "Puissance": "150Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 12,
+        "Nom de la borne": "Sigeif - Avenue Alphen",
+        "Adresse": "14 Avenue Alphen",
+        "Ville": "Ville-d'Avray",
+        "GPS": "2.182783747538224,48.82550731135615",
+        "Puissance": "24Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 13,
+        "Nom de la borne": "Casita",
+        "Adresse": "112 Route de Duhort",
+        "Ville": "Renung",
+        "GPS": "-0.3590904164236406,43.75040136421208",
+        "Puissance": "100Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 14,
+        "Nom de la borne": "Lidl Saint-Maur",
+        "Adresse": "Rue Jade",
+        "Ville": "Saint-Maur",
+        "GPS": "1.659294961369369,46.786760810449294",
+        "Puissance": "160Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 15,
+        "Nom de la borne": "Station multi-énergies e-Charge 50",
+        "Adresse": "ZA du Mesnil",
+        "Ville": "Carentan-les-Marais",
+        "GPS": "-1.211117294343694,49.30268976472448",
+        "Puissance": "300Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 16,
+        "Nom de la borne": "D 900",
+        "Adresse": "D 900",
+        "Ville": "Non spécifié",
+        "GPS": "-1.539719620801634,49.278564233626184",
+        "Puissance": "150Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "0,35 €/kWh"
+    },
+    {
+        "id": 17,
+        "Nom de la borne": "e-Charge 50 - Rue Trésor - DC",
+        "Adresse": "Rue Trésor",
+        "Ville": "Non spécifié",
+        "GPS": "-1.2673608741777969,49.58695446603696",
+        "Puissance": "30Kw",
+        "Statut de la borne": 150,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 18,
+        "Nom de la borne": "e-Charge 50 - Place Charles de Gaulle - DC",
+        "Adresse": "Place Charles de Gaulle",
+        "Ville": "Non spécifié",
+        "GPS": "-1.263986998059977,49.5861089578477",
+        "Puissance": "30Kw",
+        "Statut de la borne": 150,
+        "Prix d'utilisation": "Non spécifié"
+    },
+    {
+        "id": 19,
+        "Nom de la borne": "Les Zelles Parking",
+        "Adresse": "Chemin des Écorces",
+        "Ville": "La Bresse",
+        "GPS": "6.893313764637014,48.0028655068331",
+        "Puissance": "22Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Interoperabilite 60ct/kWh +48ct / Bankcard 8,33ct/min +48ct"
+    },
+    {
+        "id": 20,
+        "Nom de la borne": "Camping Bois de Valmarie",
+        "Adresse": "Avenue Torre d'En Sorre",
+        "Ville": "Argelès-sur-Mer",
+        "GPS": "3.0515083841837622,42.53801093267748",
+        "Puissance": "22Kw",
+        "Statut de la borne": 50,
+        "Prix d'utilisation": "Non spécifié"
+    }
+]

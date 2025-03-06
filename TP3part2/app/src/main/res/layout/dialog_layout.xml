@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter une borne"
+            android:textStyle="bold"
+            android:layout_margin="15dp"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/editNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nom de la borne" />
+        <EditText
+            android:id="@+id/editAdresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Adresse" />
+        <EditText
+            android:id="@+id/editVille"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ville" />
+        <EditText
+            android:id="@+id/editGPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="GPS" />
+        <EditText
+            android:id="@+id/editPuissance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Puissance" />
+        <EditText
+            android:id="@+id/editStatut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="Statut" />
+        <EditText
+            android:id="@+id/editPrix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="Statut" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/editAnnuler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ANNULER"
+                android:textStyle="bold"
+                android:backgroundTint="@android:color/white"
+                android:textColor="#a020f0"/>
+            <Button
+                android:id="@+id/editAjouter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AJOUTER"
+                android:textStyle="bold"
+                android:backgroundTint="@android:color/white"
+                android:textColor="#a020f0"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
