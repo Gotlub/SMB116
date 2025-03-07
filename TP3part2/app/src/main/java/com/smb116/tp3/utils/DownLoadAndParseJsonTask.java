@@ -3,7 +3,7 @@ package com.smb116.tp3.utils;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.smb116.tp3.Borne;
+import com.smb116.tp3.model.Borne;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -43,7 +43,7 @@ public class DownLoadAndParseJsonTask extends AsyncTask<String, Void, ArrayList<
             JSONArray bornesArray = new JSONArray(response.toString());
             //JSONObject jsonObject = new JSONObject(response.toString());
             //JSONArray bornesArray = jsonObject.getJSONArray("bornes");
-
+            Log.d("bornesArray", bornesArray.toString());
             // Insérer les 10 premiers éléments dans la liste
             for (int i = 0; i < Math.min(10, bornesArray.length()); i++) {
                 Borne borne = new Borne();

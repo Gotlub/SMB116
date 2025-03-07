@@ -1,9 +1,8 @@
 package com.smb116.tp3.utils;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.smb116.tp3.Borne;
+import com.smb116.tp3.model.Borne;
 
 import org.json.JSONArray;
 import org.json.JSONException;

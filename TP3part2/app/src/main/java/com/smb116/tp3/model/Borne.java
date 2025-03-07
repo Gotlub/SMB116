@@ -1,11 +1,10 @@
-package com.smb116.tp3;
+package com.smb116.tp3.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.io.Serializable;
 
 public class Borne implements Parcelable {
     private int id;
@@ -16,18 +15,6 @@ public class Borne implements Parcelable {
     private String puissance;
     private int statut;
     private String prix;
-
-    /*
-    public Borne(int id, String nom, String adresse, String ville, String gps, String puissance, int statut, String prix) {
-        this.id = id;
-        this.nom = nom;
-        this.adresse = adresse;
-        this.ville = ville;
-        this.gps = gps;
-        this.puissance = puissance;
-        this.statut = statut;
-        this.prix = prix;
-    }*/
 
     public  Borne(){
 
@@ -54,6 +41,23 @@ public class Borne implements Parcelable {
             return new Borne[size];
         }
     };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(nom);
+        parcel.writeString(adresse);
+        parcel.writeString(ville);
+        parcel.writeString(gps);
+        parcel.writeString(puissance);
+        parcel.writeInt(statut);
+        parcel.writeString(prix);
+    }
 
     public int getId() {
         return id;
@@ -119,20 +123,5 @@ public class Borne implements Parcelable {
         this.prix = prix;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeInt(id);
-        parcel.writeString(nom);
-        parcel.writeString(adresse);
-        parcel.writeString(ville);
-        parcel.writeString(gps);
-        parcel.writeString(puissance);
-        parcel.writeInt(statut);
-        parcel.writeString(prix);
-    }
 }
+

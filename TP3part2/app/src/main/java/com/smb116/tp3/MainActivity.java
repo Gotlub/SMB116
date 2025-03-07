@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smb116.tp3.model.Borne;
 import com.smb116.tp3.utils.ConverterList;
 import com.smb116.tp3.utils.MyAdapter;
 import com.smb116.tp3.utils.DownLoadAndParseJsonTask;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btnEffacer = findViewById(R.id.btnEffacer);
         butChargerListener();
         btnAjouterListener();
+        btnEffacerListener();
     }
     private void butChargerListener() {
         btnCharger.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     private void btnAjouterListener() {
         Dialog dialog = new Dialog(MainActivity.this);
 
@@ -75,8 +78,53 @@ public class MainActivity extends AppCompatActivity {
                 editAnnuler = dialog.findViewById(R.id.editAnnuler);
                 editAjouter = dialog.findViewById(R.id.editAjouter);
                 dialog.show();
+                editAnnuler.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                editAjouter.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogLayoutAjouter(dialog);
+                        dialog.dismiss();
+                    }
+                });
             }
         });
+    }
+
+    private void btnEffacerListener() {
+        btnEffacer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                adapter.setBornList(new ArrayList<>());
+                Toast.makeText(MainActivity.this, "Bornes effacées", Toast.LENGTH_SHORT).show();
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void dialogLayoutAjouter(Dialog dialog ) {
+        editNom = dialog.findViewById(R.id.editNom);
+        editAdresse = dialog.findViewById(R.id.editAdresse);
+        editVille = dialog.findViewById(R.id.editVille);
+        editGPS = dialog.findViewById(R.id.editGPS);
+        editPuissance = dialog.findViewById(R.id.editPuissance);
+        editStatut = dialog.findViewById(R.id.editStatut);
+        editPrix = dialog.findViewById(R.id.editPrix);
+        Borne borne = new Borne();
+        borne.setId(adapter.getMaxId());
+        borne.setNom(editNom.getText().toString());
+        borne.setAdresse(editAdresse.getText().toString());
+        borne.setVille(editVille.getText().toString());
+        borne.setGps(editGPS.getText().toString());
+        borne.setPuissance(editPuissance.getText().toString());
+        borne.setStatut(Integer.parseInt(editStatut.getText().toString()));
+        borne.setPrix(editPrix.getText().toString());
+        adapter.addBorne(borne);
+        adapter.notifyDataSetChanged();
     }
 
     public void updateRecyclerView(List<Borne>result) {
@@ -102,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
         // Set Adapter
         adapter = new MyAdapter(borneList);
         recyclerView.setAdapter(adapter);
+        // Selection d'une borne
         adapter.setOnClickListener(new MyAdapter.OnClickListener() {
             @Override
             public void onClick(int position, Borne borne) {

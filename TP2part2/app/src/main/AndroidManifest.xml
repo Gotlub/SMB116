@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     
     <permission android:name="com.smb116.TP2part2.permission.CALL_LOGIN"
-        android:protectionLevel="normal" />
+        android:protectionLevel="n" />
 
     <application
         android:allowBackup="true"

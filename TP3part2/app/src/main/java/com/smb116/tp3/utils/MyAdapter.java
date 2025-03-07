@@ -8,15 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.smb116.tp3.Borne;
+import com.smb116.tp3.model.Borne;
 import com.smb116.tp3.R;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    public void setBornList(List<Borne> bornList) {
-        this.bornList = bornList;
-    }
 
     private List<Borne> bornList;
 
@@ -26,6 +25,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public MyAdapter(List<Borne> bornList) {
         this.bornList = bornList;
     }
+
 
     @NonNull
     @Override
@@ -53,6 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         });
     }
 
+
     // Setter for the click listener
     public void setOnClickListener(OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
@@ -66,6 +67,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public int getItemCount() {
         return bornList.size();
+    }
+
+    public int getMaxId() {
+        if(this.getItemCount() > 0)
+            return bornList.stream().max(Comparator.comparing(Borne::getId)).orElseThrow(NoSuchElementException::new).getId() + 1;
+        return 1;
+    }
+
+    public void setBornList(List<Borne> bornList) {
+        this.bornList = bornList;
+    }
+
+    public void addBorne(Borne borne) {
+        bornList.add(borne);
     }
 
     // ViewHolder class

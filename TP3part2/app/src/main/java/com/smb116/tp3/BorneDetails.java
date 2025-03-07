@@ -3,19 +3,12 @@ package com.smb116.tp3;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.smb116.tp3.databinding.ActivityBorneDetailsBinding;
+import com.smb116.tp3.model.Borne;
 
 public class BorneDetails extends AppCompatActivity {
 
@@ -30,8 +23,6 @@ public class BorneDetails extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.toolbar.setNavigationOnClickListener(view -> onBackPressed());
 
-        // creating an employee list
-        // of type Employee class
         Borne borne = null;
         Intent intent = getIntent();
         if (intent != null) {
