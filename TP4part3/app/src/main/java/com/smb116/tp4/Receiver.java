@@ -58,7 +58,6 @@ public class Receiver extends BroadcastReceiver  implements Parcelable {
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
         String count = "count";
-        Log.d("logD", "aLLloooooooooooooooo ? " + rTexte);
         if(Objects.equals(intent.getAction(), "time_action_tic")) {
             long lCount = intent.getLongExtra("count", 0);
             r.setText(String.format("%s : %s", rTexte, String.valueOf(lCount)));

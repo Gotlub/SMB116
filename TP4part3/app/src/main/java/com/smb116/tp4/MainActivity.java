@@ -75,9 +75,6 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
         if(I)Log.i(TAG,"onSaveInstanceState");
-        Log.d("logD", "onSAAAABVEEE" );
-        Log.d("logD", "onSAAAABVEEE" );
-        Log.d("logD", "onSAAAABVEEE" );
         outState.putParcelable("ticker",ticker); // demandé en q3
         outState.putParcelable("r1",r1);
         outState.putParcelable("r2",r2);
@@ -86,17 +83,10 @@ public class MainActivity extends AppCompatActivity {
     public void onRestoreInstanceState(Bundle outState){
         super.onRestoreInstanceState(outState);
         if(I)Log.i(TAG,"onRestoreInstanceState");
-        Log.d("logD", "onRestoreInstanceState" );
-        Log.d("logD", "onRestoreInstanceState" );
-        Log.d("logD", "onRestoreInstanceState" );
         ticker = (Ticker)outState.getParcelable("ticker"); // demandé en q3
         r1Texte.setText(((Receiver)outState.getParcelable("r1")).getMemory());
         r2Texte.setText(((Receiver)outState.getParcelable("r2")).getMemory());
         r3Texte.setText(((Receiver)outState.getParcelable("r3")).getMemory());
-        Log.d("logD onRestoreInstanceState", r1Texte.getText().toString());
-        Log.d("logD onRestoreInstanceState", r2Texte.getText().toString() );
-        Log.d("logD onRestoreInstanceState", r3Texte.getText().toString() );
-
         init();
         makeReceiver();
         // suivie d'une mise à jour de l'IHM
@@ -138,13 +128,10 @@ public class MainActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("logD btnStartListener", String.valueOf(onRun));
                 if (!onRun) {
                     long count = 0;
                     if (ticker == null) {
-                        Log.d("logD start", "ticker null");
                         makeReceiver();
-                        r2.setEndBrocast(20);
                     } else {
                         count = ticker.getCount();
                     }
@@ -161,9 +148,7 @@ public class MainActivity extends AppCompatActivity {
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("logD btnStopListener", String.valueOf(onRun));
                 if(onRun) {
-                    Log.d("logD stop", "stoppp");
                     r1.setMemory(r1Texte.getText().toString());
                     r2.setMemory(r2Texte.getText().toString());
                     r3.setMemory(r3Texte.getText().toString());

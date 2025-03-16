@@ -51,10 +51,6 @@ public class Ticker extends Thread implements Parcelable {
             SystemClock.sleep(1000L);
             count++;
             intent.putExtra(Ticker.COUNT_EXTRA, count);
-            Log.d("logD ticker", String.valueOf(count));
-            Log.d("logD ticker", String.valueOf(Ticker.COUNT_EXTRA) + " " + TIME_ACTION_TIC );
-            Log.d("logD ticker", context.toString() );
-            Log.d("logD ticker", intent.toString() );
             if(count<=10) {context.sendBroadcast(intent);}
             else { context.sendOrderedBroadcast(intent,null);}
         }
@@ -67,12 +63,10 @@ public class Ticker extends Thread implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
-        //parcel.writeLong(count);
         parcel.writeValue(this);
     }
 
     private Ticker(Parcel in) {
-        //count = in.readLong();
         Ticker ticker = ((Ticker)in.readValue(MainActivity.class.getClassLoader()));
         MainActivity activity = MainActivity.getInstance();
         activity.setTicker(ticker);
