@@ -21,7 +21,11 @@ public class Receiver extends BroadcastReceiver  implements Parcelable {
     private TextView r;
     private String rTexte;
 
-    private String memory;
+    public void setMemory(String memory) {
+        this.memory = memory;
+    }
+
+    private String memory = null;
     private int endBrocast = -1;
 
     protected Receiver(Parcel in) {
@@ -74,7 +78,8 @@ public class Receiver extends BroadcastReceiver  implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeString(r.getText().toString());
+        if(memory == null)  parcel.writeString(r.getText().toString());
+        else parcel.writeString(memory);
     }
 
     public String getMemory() {

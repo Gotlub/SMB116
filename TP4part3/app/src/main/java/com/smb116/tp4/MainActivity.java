@@ -26,7 +26,13 @@ public class MainActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
     private final boolean I = true;
 
-    public static Ticker ticker = null;
+    private static MainActivity instance;
+
+    public void setTicker(Ticker ticker) {
+        this.ticker = ticker;
+    }
+
+    public  Ticker ticker = null;
     private boolean onRun = false;
 
     private Button btnStart;
@@ -43,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         if(I) Log.i(TAG,"onResume");
         setReceive();
+    }
+    public static MainActivity getInstance() {
+        return instance;
     }
 
     @Override
@@ -84,8 +93,12 @@ public class MainActivity extends AppCompatActivity {
         r1Texte.setText(((Receiver)outState.getParcelable("r1")).getMemory());
         r2Texte.setText(((Receiver)outState.getParcelable("r2")).getMemory());
         r3Texte.setText(((Receiver)outState.getParcelable("r3")).getMemory());
-        makeReceiver();
+        Log.d("logD onRestoreInstanceState", r1Texte.getText().toString());
+        Log.d("logD onRestoreInstanceState", r2Texte.getText().toString() );
+        Log.d("logD onRestoreInstanceState", r3Texte.getText().toString() );
+
         init();
+        makeReceiver();
         // suivie d'une mise à jour de l'IHM
     }
 
@@ -95,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         init();
+        instance = this;
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -124,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("logD btnStartListener", String.valueOf(onRun));
                 if (!onRun) {
                     long count = 0;
                     if (ticker == null) {
@@ -146,8 +161,12 @@ public class MainActivity extends AppCompatActivity {
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("logD btnStopListener", String.valueOf(onRun));
                 if(onRun) {
                     Log.d("logD stop", "stoppp");
+                    r1.setMemory(r1Texte.getText().toString());
+                    r2.setMemory(r2Texte.getText().toString());
+                    r3.setMemory(r3Texte.getText().toString());
                     ticker.stopTicker();
                     onRun = false;
                 }

@@ -73,7 +73,9 @@ public class Ticker extends Thread implements Parcelable {
 
     private Ticker(Parcel in) {
         //count = in.readLong();
-        MainActivity.ticker = ((Ticker)in.readValue(MainActivity.class.getClassLoader()));
+        Ticker ticker = ((Ticker)in.readValue(MainActivity.class.getClassLoader()));
+        MainActivity activity = MainActivity.getInstance();
+        activity.setTicker(ticker);
     }
 
     public long getCount() {
