@@ -77,7 +77,5 @@ public class UserHelper extends SQLiteOpenHelper {
         bd.close();
         return Users;
     }
-
-
 }
 
