@@ -93,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
         posDetail = findViewById(R.id.posDetail);
         recyclerView = findViewById(R.id.recyclerview);
         address = findViewById(R.id.address);
-        geocoder = new Geocoder(getApplicationContext(), Locale.FRANCE);
-
     }
 
     @Override
@@ -109,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void afficherLocation(Location location) {
-        posDetail.setText(String.format("Longitude: " + location.getLongitude() + "\n" +
-                "Latitude: " + location.getLatitude() + "\n" +
+        posDetail.setText(String.format("Longitude: " + lon + "\n" +
+                "Latitude: " + lat  + "\n" +
                 "Altitude: " + location.getAltitude() + "\n" +
                 "Accuracy: " + location.getAccuracy() + "m\n"
                 + "Speed:" + location.getSpeed() + "m/s\n" +
@@ -119,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void afficherAdresse(Location location) {
         try {
-            List<Address> adresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            List<Address> adresses = geocoder.getFromLocation(lat, lon, 1);
             StringBuilder addr = new StringBuilder();
             addr.append(adresses.get(0).getAddressLine(0)).append("\n");
             address.setText(addr);
@@ -133,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
+        geocoder = new Geocoder(getApplicationContext(), Locale.FRANCE);
         locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000L, 10, mLocationListener);
         locationManager.registerGnssStatusCallback(mGnssStatusCallback);
@@ -145,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
             locationManager.unregisterGnssStatusCallback(mGnssStatusCallback);
     }
 
-    @SuppressLint("MissingPermission")
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
