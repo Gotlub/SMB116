@@ -1,20 +1,16 @@
 package com.smb116.tp8geoloc;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.GnssAntennaInfo;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.GnssStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
-import android.location.provider.ProviderProperties;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -23,16 +19,22 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Handler;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView reseau, posDetail, listeSatellite, address;
+    private TextView reseau, posDetail, address;
+    private RecyclerView recyclerView;
+    private MyAdapter adapter;
+    private List<String> listSat;
     private LocationManager locationManager = null;
-    ProviderProperties providerProperties ;
-
+    private Geocoder geocoder;
     private static final int GPS_CODE = 100;
 
     public GnssStatus.Callback mGnssStatusCallback = new GnssStatus.Callback() {
@@ -40,27 +42,26 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onFirstFix(int ttffMillis){
             super.onFirstFix(ttffMillis);
-            Log.d("log d onFirstFix" , String.valueOf(ttffMillis));
-            reseau.setText("GPS OK \n" +
-                    "Time required to receive the fist fix: " + ttffMillis + "ms");
+            reseau.setText(String.format("GPS OK \nTime required to receive the fist fix: %dms", ttffMillis));
         }
+        
         @Override
         public void onSatelliteStatusChanged(GnssStatus status) {
             Log.d("log d 5" , String.valueOf(status.getSatelliteCount()));
-            String satellites = "";
-            for(int k = 0; k < status.getSatelliteCount() && k < 7; k++) {
-                satellites += "Satellite " + status.getSvid(k) + "\n" +
+            listSat = new ArrayList<String>();
+            for(int k = 0; k < status.getSatelliteCount(); k++) {        // && k < 7
+                listSat.add("Satellite " + status.getSvid(k) + "\n" +
                         "Az:" + status.getAzimuthDegrees(k) + "°,El" + status.getElevationDegrees(k) + "°, Snr:" + status.getBasebandCn0DbHz(k) +
-                        "\nAlmanac: " + status.hasAlmanacData(k) +", Ephemeris: " + status.hasEphemerisData(k) +", UsedInFix: " + status.usedInFix(k) +"\n";
+                        "\nAlmanac: " + status.hasAlmanacData(k) +", Ephemeris: " + status.hasEphemerisData(k) +", UsedInFix: " + status.usedInFix(k));
 
             }
-            listeSatellite.setText(satellites);
+            adapter.setSatList(listSat);
+            adapter.notifyDataSetChanged();
         }
 
         @Override
         public void onStarted() {
             super.onStarted();
-            Log.d("log d 6" , "coucou on start");
         }
 
         @Override
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onLocationChanged(Location location) {
             Log.d("log d locationListener", "Location update: " + location);
+            afficherLocation(location);
+            afficherAdresse(location);
         }
 
         @Override
@@ -89,8 +92,9 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         reseau = findViewById(R.id.reseau);
         posDetail = findViewById(R.id.posDetail);
-        listeSatellite = findViewById(R.id.listeSatellite);
+        recyclerView = findViewById(R.id.recyclerview);
         address = findViewById(R.id.address);
+        geocoder = new Geocoder(getApplicationContext(), Locale.FRANCE);
 
     }
 
@@ -114,28 +118,27 @@ public class MainActivity extends AppCompatActivity {
                 "Bearing: " + location.getBearing() + "°\n" +
                 "Time:" + location.getTime()) ) ;
     }
+    private void afficherAdresse(Location location) {
+        try {
+            List<Address> adresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 3);
+            StringBuilder addr = new StringBuilder();
+            addr.append(adresses.get(0).getAddressLine(0)).append("\n");
+            address.setText(addr);
+            Log.d("log d addr", String.valueOf(addr));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     private void locationLautcher() {
         if (ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-        providerProperties = locationManager.getProviderProperties(LocationManager.GPS_PROVIDER); //pourquoi faire
-
-        Log.d("log d 1" , String.valueOf(locationManager.getAllProviders()));
-        Log.d("log d 2" , String.valueOf(providerProperties));
-        LocationProvider gpsProvider = locationManager.getProvider(LocationManager.GPS_PROVIDER);
-        Log.d("log d 3" , String.valueOf(gpsProvider));
-        Location localisation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mLocationListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000L, 10, mLocationListener);
         locationManager.registerGnssStatusCallback(mGnssStatusCallback);
-        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30L, (float) 5, (LocationListener) null);
-        if (localisation != null) {
-            Log.d("log d 4" , localisation.toString());
-            afficherLocation(localisation);
-        }
-
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -163,6 +166,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         init();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        listSat = new ArrayList<String>();
+        adapter = new MyAdapter(listSat);
+        recyclerView.setAdapter(adapter);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
