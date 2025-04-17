@@ -43,16 +43,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return satList.size();
     }
 
-
     static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView satellite;
 
         public MyViewHolder(@NonNull View itemView) {
-
             super(itemView);
-
             satellite = itemView.findViewById(R.id.satellite);
-
         }
     }
 }

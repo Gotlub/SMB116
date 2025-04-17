@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             super.onFirstFix(ttffMillis);
             reseau.setText(String.format("GPS OK \nTime required to receive the fist fix: %dms", ttffMillis));
         }
-        
+
         @Override
         public void onSatelliteStatusChanged(GnssStatus status) {
             Log.d("log d 5" , String.valueOf(status.getSatelliteCount()));
@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onStopped() {
             super.onStopped();
-            // GNSS a été arrêté
         }
     };
 
@@ -120,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void afficherAdresse(Location location) {
         try {
-            List<Address> adresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 3);
+            List<Address> adresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
             StringBuilder addr = new StringBuilder();
             addr.append(adresses.get(0).getAddressLine(0)).append("\n");
             address.setText(addr);
