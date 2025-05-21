@@ -52,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
         List<ScanResult> scanResults = wifiManager.getScanResults();
         String s = "";
         for(ScanResult scan:scanResults) {
-            s +=  "SSID " + scan.SSID + "\n";
-            s +=  "\tBSSID " + scan.BSSID + "\n";
+            s +=  "SSID: " + scan.SSID + "\n";
+            s +=  "\tBSSID: " + scan.BSSID + "\n";
             s += "\tFrequency: "+ String.valueOf(scan.frequency) + " Mhz\n";
-            s += "\tLevel : "+ String.valueOf(scan.level) + " dBm\n\n";
+            s += "\tLevel: "+ String.valueOf(scan.level) + " dBm\n\n";
             textAffich.setText(s);
         }
     }
