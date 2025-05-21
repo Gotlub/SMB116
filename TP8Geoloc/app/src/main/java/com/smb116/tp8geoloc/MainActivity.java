@@ -107,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void afficherLocation(Location location) {
-        posDetail.setText(String.format("Longitude: " + lon + "\n" +
-                "Latitude: " + lat  + "\n" +
+        posDetail.setText(String.format("Longitude: " + location.getLongitude() + "\n" +
+                "Latitude: " + location.getLatitude()  + "\n" +
                 "Altitude: " + location.getAltitude() + "\n" +
                 "Accuracy: " + location.getAccuracy() + "m\n"
                 + "Speed:" + location.getSpeed() + "m/s\n" +
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void afficherAdresse(Location location) {
         try {
-            List<Address> adresses = geocoder.getFromLocation(lat, lon, 1);
+            List<Address> adresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
             StringBuilder addr = new StringBuilder();
             addr.append(adresses.get(0).getAddressLine(0)).append("\n");
             address.setText(addr);
