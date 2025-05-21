@@ -20,6 +20,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.content.ContextCompat;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,8 +53,15 @@ public class MainActivity extends AppCompatActivity {
         @SuppressLint("MissingPermission")
         List<ScanResult> scanResults = wifiManager.getScanResults();
         String s = "";
+        Collections.sort(scanResults, new Comparator<ScanResult>() {
+            @Override
+            public int compare(ScanResult scanResult1, ScanResult scanResult2) {
+                return scanResult1.SSID.compareTo(scanResult2.SSID);
+            }
+        });
         for(ScanResult scan:scanResults) {
-            s +=  "SSID: " + scan.SSID + "\n";
+            if(!s.contains(scan.SSID))
+                s +=  "SSID: " + scan.SSID + "\n";
             s +=  "\tBSSID: " + scan.BSSID + "\n";
             s += "\tFrequency: "+ String.valueOf(scan.frequency) + " Mhz\n";
             s += "\tLevel: "+ String.valueOf(scan.level) + " dBm\n\n";
