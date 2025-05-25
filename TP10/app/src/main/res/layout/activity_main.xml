@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="8dp"
+                    app:srcCompat="@drawable/cpu" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sensors"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="#CCCCCC" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Network Service Discovery" />
+
+            <Button
+                android:id="@+id/startService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start service" />
+
+            <Button
+                android:id="@+id/stopService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stop service" />
+
+            <TextView
+                android:id="@+id/afficheService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <Button
+                android:id="@+id/startDisc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start discovering" />
+
+            <Button
+                android:id="@+id/stopDisc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stop discovering" />
+
+            <Button
+                android:id="@+id/msgDisc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send message" />
+
+            <TextView
+                android:id="@+id/afficheDisc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <Button
+                android:id="@+id/bntFin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fermer" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
